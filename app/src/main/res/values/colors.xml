@@ -2,4 +2,13 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="dark_orange">#EB3F09</color>
+    <color name="light_orange">#FBECE7</color>
+    <color name="mid_light_orange">#FDF8F6</color>
+    <color name="bg">#121212</color>
+    <color name="display">#1E1E1E</color>
+    <color name="gray">#B0B0B0</color>
+    <color name="dark_gray">#7C7B7B</color>
+    <color name="operator">#FF9500</color>
+    <color name="equal">#34C759</color>
 </resources>

@@ -1,20 +1,245 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:background="@color/light_orange"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:padding="15dp">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <!-- DISPLAY -->
+    <LinearLayout
+        android:id="@+id/displayContainer"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:orientation="vertical"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:background="@drawable/display_output"
+        android:padding="16dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/txtExpression"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="159-36"
+            android:maxLines="3"
+            android:textSize="24sp"
+            android:textColor="@color/dark_gray"
+            android:gravity="end"/>
+
+        <TextView
+            android:id="@+id/txtResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="123"
+            android:textSize="40sp"
+            android:maxLines="3"
+            android:textColor="@color/dark_orange"
+            android:gravity="end"
+            android:layout_marginTop="15dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layHR"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="start"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/displayContainer">
+
+        <!-- HISTORY BUTTON -->
+        <ImageView
+            android:id="@+id/btnHistory"
+            android:src="@drawable/ic_history"
+            app:tint="@color/dark_gray"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentStart="true"
+            android:layout_margin="12dp"/>
+
+        <ImageView
+            android:id="@+id/btnRotate"
+            android:src="@drawable/ic_rotataa"
+            app:tint="@color/dark_gray"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentStart="true"
+            android:layout_margin="12dp"/>
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/view"
+        android:layout_below="@+id/layHR"
+        android:layout_width="match_parent"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="15dp"
+        android:layout_height="2dp"
+        android:background="@color/gray"/>
+
+    <!-- BUTTON GRID -->
+    <GridLayout
+        android:id="@+id/grid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/view"
+        android:columnCount="4">
+
+        <Button
+            style="@style/btnNumber"
+            android:text="mc"
+            app:backgroundTint="@null"/>
+
+        <Button
+            style="@style/btnNumber"
+            android:text="m+"
+            app:backgroundTint="@null"/>
+
+        <Button
+            style="@style/btnNumber"
+            android:text="m-"
+            app:backgroundTint="@null"/>
+
+        <Button
+            style="@style/btnOperator"
+            android:text="mr"
+            app:backgroundTint="@null"/>
+
+        <Button
+            style="@style/btnNumber"
+            android:text="AC"
+            android:onClick="onClear"
+            app:backgroundTint="@null"/>
+
+        <Button
+            style="@style/btnNumber"
+            android:text="⌫"
+            android:onClick="onBack"
+            app:backgroundTint="@null" />
+
+        <Button
+            style="@style/btnNumber"
+            android:text="+/-"
+            android:onClick="onPlusMinus"
+            app:backgroundTint="@null"/>
+
+        <Button
+            style="@style/btnOperator"
+            android:text="/"
+            android:onClick="onOperator"
+            app:backgroundTint="@null"/>
+
+        <!-- Example buttons -->
+        <Button
+            android:id="@+id/btn7"
+            style="@style/btnNumber"
+            android:text="7" />
+
+        <Button
+            android:id="@+id/btn8"
+            style="@style/btnNumber"
+            android:text="8" />
+
+        <Button
+            android:id="@+id/btn9"
+            style="@style/btnNumber"
+            android:text="9" />
+
+        <Button
+            android:id="@+id/btnDivide"
+            style="@style/btnOperator"
+            android:text="*"
+            android:onClick="onOperator"
+            app:backgroundTint="@null"/>
+
+        <Button
+            android:id="@+id/btn4"
+            style="@style/btnNumber"
+            android:text="4" />
+
+        <Button
+            android:id="@+id/btn5"
+            style="@style/btnNumber"
+            android:text="5" />
+
+        <Button
+            android:id="@+id/btn6"
+            style="@style/btnNumber"
+            android:text="6" />
+
+        <Button
+            style="@style/btnOperator"
+            android:text="-"
+            android:onClick="onOperator"
+            app:backgroundTint="@null"/>
+
+        <Button
+            android:id="@+id/btn1"
+            style="@style/btnNumber"
+            android:text="1" />
+
+        <Button
+            android:id="@+id/btn2"
+            style="@style/btnNumber"
+            android:text="2" />
+
+        <Button
+            android:id="@+id/btn3"
+            style="@style/btnNumber"
+            android:text="3" />
+
+        <Button
+            style="@style/btnOperator"
+            android:text="+"
+            android:onClick="onOperator"
+            app:backgroundTint="@null"/>
+
+        <Button
+            style="@style/btnNumber"
+            android:text="%"
+            app:backgroundTint="@null"/>
+
+        <Button
+            android:id="@+id/btn0"
+            style="@style/btnNumber"
+            android:text="0" />
+
+        <Button
+            style="@style/btnNumber"
+            android:text="."
+            app:backgroundTint="@null"/>
+
+        <Button
+            style="@style/btnEqual"
+            android:text="="
+            android:onClick="onEqual"
+            app:backgroundTint="@null"/>
+
+        <!-- Continue same for all -->
+    </GridLayout>
+
+    <!-- HISTORY PANEL -->
+    <LinearLayout
+        android:id="@+id/historyPanel"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="History"
+            android:textSize="18sp"
+            android:padding="12dp"/>
+
+        <ListView
+            android:id="@+id/historyList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+
+</RelativeLayout>

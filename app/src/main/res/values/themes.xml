@@ -1,9 +1,16 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.CalcSohel" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary" >@color/dark_orange</item>
+        <item name="colorPrimaryVariant">@color/dark_orange</item>
+
     </style>
 
-    <style name="Theme.CalcSohel" parent="Base.Theme.CalcSohel" />
+    <style name="Theme.CalcSohel" parent="Base.Theme.CalcSohel">
+
+        <item name="colorPrimary" >@color/dark_orange</item>
+        <item name="colorPrimaryVariant">@color/dark_orange</item>
+        <item name="colorAccent">@color/light_orange</item>
+
+    </style>
 </resources>
